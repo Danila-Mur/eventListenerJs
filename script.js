@@ -6,21 +6,28 @@ const btnClick = document.querySelector('#btn'),
   circle = document.querySelector('#circle'),
   insideBtn = document.querySelector('#e_btn');
 
-btnClick.addEventListener('click', (e) => {
-  e.preventDefault();
+const loadContent = () => {
+  spanRange.textContent = inputRange.value + ' %';
 
+  circle.style.width = `${inputRange.value}%`;
+  circle.style.height = `${inputRange.value}%`;
+}
+
+const changeBackground = () => {
   square.style.backgroundColor = `${inputText.value}`;
 
   inputText.value = '';
-});
+};
 
-console.log(insideBtn.style);
+const changeSize = (e) => {
+  spanRange.textContent = e.target.value + ' %';
+
+  circle.style.width = `${e.target.value}%`;
+  circle.style.height = `${e.target.value}%`;
+};
 
 insideBtn.style.display = 'none';
 
-inputRange.addEventListener('input', (e) => {
-  spanRange.textContent = e.target.value + ' %';
-
-  circle.style.width = `${e.target.value}%`
-  circle.style.height = `${e.target.value}%`
-})
+window.addEventListener('DOMContentLoaded', loadContent)
+btnClick.addEventListener('click', changeBackground);
+inputRange.addEventListener('input', changeSize);
