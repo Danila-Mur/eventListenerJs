@@ -3,6 +3,7 @@ const btnClick = document.querySelector('#btn'),
   inputRange = document.querySelector('input[type=range]'),
   spanRange = document.querySelector('#range-span'),
   square = document.querySelector('#square'),
+  circle = document.querySelector('#circle'),
   insideBtn = document.querySelector('#e_btn');
 
 btnClick.addEventListener('click', (e) => {
@@ -13,11 +14,13 @@ btnClick.addEventListener('click', (e) => {
   inputText.value = '';
 });
 
+console.log(insideBtn.style);
+
 insideBtn.style.display = 'none';
 
 inputRange.addEventListener('input', (e) => {
   spanRange.textContent = e.target.value + ' %';
 
-  square.style.width = `${e.target.value}%`
-  square.style.height = `${e.target.value}%`
+  circle.style.width = `${e.target.value}%`
+  circle.style.height = `${e.target.value}%`
 })
