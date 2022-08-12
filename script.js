@@ -11,7 +11,7 @@ const loadContent = () => {
 
   circle.style.width = `${inputRange.value}%`;
   circle.style.height = `${inputRange.value}%`;
-}
+};
 
 const changeBackground = () => {
   square.style.backgroundColor = `${inputText.value}`;
@@ -19,15 +19,9 @@ const changeBackground = () => {
   inputText.value = '';
 };
 
-const changeSize = (e) => {
-  spanRange.textContent = e.target.value + ' %';
-
-  circle.style.width = `${e.target.value}%`;
-  circle.style.height = `${e.target.value}%`;
-};
-
 insideBtn.style.display = 'none';
 
-window.addEventListener('DOMContentLoaded', loadContent)
+loadContent();
+
 btnClick.addEventListener('click', changeBackground);
-inputRange.addEventListener('input', changeSize);
+inputRange.addEventListener('input', loadContent);
